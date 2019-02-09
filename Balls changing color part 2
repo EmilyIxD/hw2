@@ -1,1 +1,52 @@
+function setup() {
+  createCanvas(600, 200);
+	colorMode (HSB);
+}
 
+var ball = 0;
+var ballSpeed = 3;
+var ballChangeX = ballSpeed;
+
+
+var ball2 = 100;
+var ballSpeed2 = 5;
+var ballChangeX2 = ballSpeed2;
+
+var ball3 = 50;
+var ballSpeed3 = 7;
+var ballChangeX3 = ballSpeed;
+
+function draw() {
+  background(220);
+  fill (random (200), 200, 200);
+  ellipse(width/2, ball, 100);
+  ellipse(ball2, height/4, 75);
+	ellipse(ball3, width/8, 50)
+  ball = ball + ballChangeX;
+  ball2 = ball2 + ballChangeX2;
+	ball3 = ball3 + ballChangeX3;
+	
+
+  // Check if ball is off right hand side of screen
+  if (ball >= height) {
+    ballChangeX = -ballSpeed;
+  }
+  if (ball2 >= width) {
+    ballChangeX2 = -ballSpeed2;
+  }
+	if (ball3 >= height) {
+		ballChangeX3 = -ballSpeed3;
+	}
+		
+
+  // Check if ball is off left hand side of screen
+  if (ball <= 0) {
+    ballChangeX = ballSpeed;
+  }
+  if (ball2 <= 0) {
+    ballChangeX2 = ballSpeed2;
+  }
+		if (ball3 <= 0) {
+		ballChangeX3 = ballSpeed3;
+	}
+}
